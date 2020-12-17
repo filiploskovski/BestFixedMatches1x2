@@ -1,0 +1,23 @@
+﻿<nav class="navbar navbar-expand-md">
+    <div class="container">
+        <a href="#" class="navbar-brand">
+            <img src="https://via.placeholder.com/300x150" height="80" alt="CoolBrand">
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <i class="fa fa-navicon" style="color:#fff; font-size:28px;"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ml-auto">
+                <a asp-action="Index" asp-controller="Home" class="nav-item nav-link nav-item-text">Home</a>
+                <a asp-action="Results" asp-controller="Home" class="nav-item nav-link nav-item-text">Results</a>
+                <a asp-action="BettingOdds" asp-controller="Home" class="nav-item nav-link nav-item-text">Betting Odds</a>
+                <a asp-action="VipTicketArchive" asp-controller="Home" class="nav-item nav-link nav-item-text">Vip Ticket archive</a>
+                <a asp-action="MonthlySubscriptionArchive" asp-controller="Home" class="nav-item nav-link nav-item-text">Monthly Subscription Archive</a>
+                <a asp-action="FreeTipsArchive" asp-controller="Home" class="nav-item nav-link nav-item-text">Free Tip Archive</a>
+                @*<a asp-action="" asp-controller="Home" class="nav-item nav-link nav-item-text">Contact</a>*@
+            </div>
+        </div>
+    </div>
+
+</nav>

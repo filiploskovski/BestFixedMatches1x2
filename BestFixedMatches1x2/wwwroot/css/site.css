@@ -1,0 +1,253 @@
+﻿body {
+    font-family: sans-serif;
+}
+
+hr {
+    border: 0.5px solid #755602;
+    background-color: #755602;
+}
+
+/* WEB */
+
+/* HEADER */
+.header {
+    background-color: black;
+}
+
+.header-list {
+    margin-top: revert;
+}
+
+.header-list-item-text > a, .nav-item-text {
+    color: #aaa8a1;
+    list-style: none;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+    .header-list-item-text > a:hover {
+        color: #f8b501;
+    }
+/* HEADER END */
+
+
+/* NAVIGATION */
+.navbar {
+    background-color: #f3f2ee;
+}
+
+.nav-item-text {
+    color: black;
+}
+
+    .nav-item-text:hover {
+        color: #f8b501;
+    }
+
+.navbar-toggler {
+    background-color: black;
+}
+/* NAVIGATION END*/
+
+/* MAIN */
+
+/* .jumbotron {
+    background-image: url("main-img.jpg");
+    background-size: cover;
+  } */
+
+
+
+
+
+.main-container {
+    margin-top: 15px;
+}
+/* MAIN END */
+
+/* MAIN LEFT*/
+
+.alert-custom {
+    background-color: #f8b501;
+}
+
+    .alert-custom > h2 {
+        FONT-WEIGHT: 800;
+        text-decoration: underline;
+        text-align: center;
+    }
+
+        .alert-custom > h2 > i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+.vip-ticket {
+    text-align: center;
+}
+
+.custom-main-text {
+    font-size: 1.5rem;
+}
+
+.custom-main-list {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+    .custom-main-list > li {
+        border: none;
+        padding: 0;
+    }
+
+        .custom-main-list > li > i {
+            color: #f8b501;
+            margin-right: 10px;
+        }
+
+.vip-ticket-card > a {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+    .vip-ticket-card > a:hover {
+        text-decoration: none;
+    }
+
+
+.vip-ticket-card-body {
+    padding: 0.75rem;
+}
+
+.row-vip-ticket-second-card {
+    margin-top: 15px;
+}
+
+.vip-ticket-card-body > .card-title {
+    text-decoration: underline;
+    color: green;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.vip-ticket-card-list-item {
+    padding: .50rem 1.0rem;
+    font-weight: bold;
+}
+
+    .vip-ticket-card-list-item > span {
+        font-size: 0.99rem;
+        font-weight: 500;
+    }
+
+.vip-tickets-images-intro-text {
+    text-align: center;
+    padding: 0.5rem;
+    border-bottom: 5px solid #f8b501;
+    color: #f8b501;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.monthly-subscription {
+    text-align: center;
+}
+
+.table-cumstom td, .table-cumstom th {
+    padding: .40rem;
+}
+
+.main-more-information {
+    text-align: center;
+}
+
+.main-more-information > p > a {
+    word-break: break-all;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+
+
+/* MAIN LEFT*/
+
+
+
+/* MAIN RIGHT*/
+.side {
+    border-left: 3px solid;
+}
+
+.site-visitors-list {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+    .site-visitors-list > li {
+        padding: 0;
+        font-weight: 600;
+    }
+
+        .site-visitors-list > li > span {
+            padding: 0;
+            font-weight: 600;
+            color: #f8b501;
+        }
+
+.side-header-text {
+    text-align: center;
+    padding: 0.5rem;
+    text-decoration: underline;
+    text-decoration-color: #f8b501;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.payment-methods-card {
+    margin-bottom: 0.5rem;
+    font-size: 10px;
+    text-align: center;
+}
+
+    .payment-methods-card > .card-body {
+        padding: 0.3rem;
+    }
+
+.side-comments {
+    text-align: center;
+    font-size: 11px;
+}
+
+    .side-comments > li {
+        padding: 0.25rem;
+        border: none;
+        border-bottom: 1px solid #f8b501;
+    }
+
+
+
+/* MAIN RIGHT*/
+
+.footer {
+    background-color: black;
+    text-align: center;
+}
+
+    .footer p {
+        color: #2d2c27;
+        font-size: 11px;
+        margin-bottom: 0.5rem;
+    }
+
+/* WEB END */
+
+
+.custom-default-url {
+    text-align: center;
+    word-break: break-all;
+    font-size: 1.3rem;
+    font-weight: 700;
+}

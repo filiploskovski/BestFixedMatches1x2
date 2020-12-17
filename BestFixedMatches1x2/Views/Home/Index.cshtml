@@ -1,0 +1,15 @@
+﻿@await Html.PartialAsync("Partial/_Landing")
+
+<div class="row">
+    <div class="col-md-9 main">
+        @await Html.PartialAsync("Partial/_VipTicket")
+        @await Html.PartialAsync("Partial/_MonthlySubscription")
+        @await Html.PartialAsync("Partial/_FreeTips")
+    </div>
+    <div class="col-md-3 side">
+        @await Html.PartialAsync("Partial/_TotalVisitors")
+        @await Html.PartialAsync("Partial/_PaymentMethods")
+        @await Html.PartialAsync("Partial/_CustomerComments")
+
+    </div>
+</div>
