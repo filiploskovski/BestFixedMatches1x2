@@ -1,15 +1,17 @@
-﻿@await Html.PartialAsync("Partial/_Landing")
+﻿@model Core.Models.IndexModel
+
+@await Html.PartialAsync("Partial/_Landing",Model.Landing)
 
 <div class="row">
     <div class="col-md-9 main">
-        @await Html.PartialAsync("Partial/_VipTicket")
-        @await Html.PartialAsync("Partial/_MonthlySubscription")
-        @await Html.PartialAsync("Partial/_FreeTips")
+        @await Html.PartialAsync("Partial/_VipTicket",Model.VipTicket)
+        @await Html.PartialAsync("Partial/_MonthlySubscription",Model.Monthly)
+        @await Html.PartialAsync("Partial/_FreeTips",Model.Free)
     </div>
     <div class="col-md-3 side">
-        @await Html.PartialAsync("Partial/_TotalVisitors")
+        @await Html.PartialAsync("Partial/_TotalVisitors",Model.Counter)
         @await Html.PartialAsync("Partial/_PaymentMethods")
-        @await Html.PartialAsync("Partial/_CustomerComments")
+        @await Html.PartialAsync("Partial/_CustomerComments",Model.Comment)
 
     </div>
 </div>

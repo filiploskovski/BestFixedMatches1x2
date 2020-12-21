@@ -1,4 +1,6 @@
-﻿<div class="row">
+﻿@model Tuple<Core.Models.HtmlModel, List<Core.Models.TableModel>>
+
+<div class="row">
     <div class="col">
         <hr>
         <section>
@@ -7,92 +9,47 @@
             </div>
             <hr>
             <div class="monthly-subscription">
-                <p class="custom-main-text">
-                    Free football matches are not fixed .. these are suggestions we make in our opinion.
-                    The matches we sell are fixed and reliable with information from betting experts for
-                    football matches.
-                </p>
-                <hr>
-                <h4>Fixed matches for 20.12.2020</h4>
-
-                <ul class="list-group custom-main-list">
-                    <li class="list-group-item">
-                        <i class="fa fa-arrow-right"
-                           aria-hidden="true"></i>20:00 Real-Barsa X
-                    </li>
-                    <li class="list-group-item">
-                        <i class="fa fa-arrow-right"
-                           aria-hidden="true"></i>20:00 Real-Barsa X
-                    </li>
-                    <li class="list-group-item">
-                        <i class="fa fa-arrow-right"
-                           aria-hidden="true"></i>20:00 Real-Barsa X
-                    </li>
-                    <li class="list-group-item">
-                        <i class="fa fa-arrow-right"
-                           aria-hidden="true"></i>20:00 Real-Barsa X
-                    </li>
-                </ul>
-                <div class="main-more-information">
-                    <hr>
-                    <h5>For more information contact:</h5>
-                    <p><a href="#">bestfixedmatches1x2@gmail.com</a></p>
-                    <hr>
-                </div>
-
+                @Html.Raw(Model.Item1.Html)
             </div>
 
 
             <div class="table-responsive">
                 <h4 class="vip-tickets-images-intro-text">
-                    Free tips Archive for December 2020
+                    Free tips archive for the last 30 days !
                 </h4>
                 <table class="table table-cumstom">
                     <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                        </tr>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Match</th>
+                        <th scope="col">Tip</th>
+                        <th scope="col">Odd</th>
+                        <th scope="col">Result</th>
+                        <th scope="col">WinLose</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                        </tr>
+                    @{
+                        foreach (var item in Model.Item2)
+                        {
+                            <tr style="">
+                                <td>@item.Date</td>
+                                <td>@item.Match</td>
+                                <td>@item.Tip</td>
+                                <td>@item.Odd</td>
+                                <td>@item.Result</td>
+                                <td>@item.WinLose</td>
+                            </tr>
+                        }
+                    }
                     </tbody>
                 </table>
+
+                <div class="col-md-12 custom-default-url">
+                    <p>
+                        <a asp-action="FreeTipsArchive" , asp-controller="Home">View full archive</a>
+                    </p>
+                </div>
             </div>
         </section>
     </div>

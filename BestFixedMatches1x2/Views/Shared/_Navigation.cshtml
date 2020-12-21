@@ -1,7 +1,7 @@
 ﻿<nav class="navbar navbar-expand-md">
     <div class="container">
-        <a href="#" class="navbar-brand">
-            <img src="https://via.placeholder.com/300x150" height="80" alt="CoolBrand">
+        <a asp-action="Index" asp-controller="Home" class="navbar-brand">
+            <img src="~/images/static-images/logo.png" height="80" alt="logo for our best fixed matches">
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <i class="fa fa-navicon" style="color:#fff; font-size:28px;"></i>
@@ -15,9 +15,7 @@
                 <a asp-action="VipTicketArchive" asp-controller="Home" class="nav-item nav-link nav-item-text">Vip Ticket archive</a>
                 <a asp-action="MonthlySubscriptionArchive" asp-controller="Home" class="nav-item nav-link nav-item-text">Monthly Subscription Archive</a>
                 <a asp-action="FreeTipsArchive" asp-controller="Home" class="nav-item nav-link nav-item-text">Free Tip Archive</a>
-                @*<a asp-action="" asp-controller="Home" class="nav-item nav-link nav-item-text">Contact</a>*@
             </div>
         </div>
     </div>
-
 </nav>

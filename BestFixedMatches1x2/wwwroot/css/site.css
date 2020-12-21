@@ -51,13 +51,9 @@ hr {
 
 /* MAIN */
 
-/* .jumbotron {
-    background-image: url("main-img.jpg");
-    background-size: cover;
-  } */
-
-
-
+ .jumbotron {
+     background-color: #f8b501;
+  } 
 
 
 .main-container {
@@ -130,6 +126,7 @@ hr {
     color: green;
     font-weight: bold;
     font-size: 1.5rem;
+    text-align: center
 }
 
 .vip-ticket-card-list-item {
@@ -250,4 +247,12 @@ hr {
     word-break: break-all;
     font-size: 1.3rem;
     font-weight: 700;
+}
+
+.table-cumstom-bacground-color-alert {
+    background-color: red;
+}
+
+.table-cumstom-bacground-color-success {
+    background-color: green;
 }

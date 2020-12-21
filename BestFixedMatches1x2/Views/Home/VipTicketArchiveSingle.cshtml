@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Tuple<Core.Models.HtmlModel, Core.Models.VipTicketModel>
+
+@{
     Layout = "_Layout";
 }
 
@@ -9,37 +11,24 @@
         </div>
     </div>
     <div class="col-md-12">
-        <p>
-            BestFixedMatches1x2.com only reliable and real occurrences, 100% sure winning competitions and
-            reliable
-            first-hand information that comes directly from sources inside the clubs and sports fields, can take
-            you to a lot of money, a better life and a secure and bright future.
-            The real connection makes the real betting profitable not luck! This is huge business and the
-            bookies are very precise.
-        </p>
+        <div class="vip-ticket-archive-main">
+            @Html.Raw(Model.Item1.Html)
+        </div>
     </div>
 </div>
 <div class="row">
     <div class="col-md-6">
-        <img class="card-img-top" src="https://via.placeholder.com/250" alt="Card image cap">
+        <img class="card-img-top" src="~/images/tickets/@Model.Item2.ImgUrl" alt="@Model.Item2.AltTag">
     </div>
     <div class="col-md-6">
         <ul class="list-group list-group-flush">
             <li class="list-group-item vip-ticket-card-list-item">
                 <i class="fa fa-arrow-right"
-                   aria-hidden="true"></i>DATE: 20.12.2020
-            </li>
-            <li class="list-group-item vip-ticket-card-list-item">
-                <i class="fa fa-arrow-right"
-                   aria-hidden="true"></i>ODD: 250
-            </li>
-            <li class="list-group-item vip-ticket-card-list-item">
-                <i class="fa fa-arrow-right"
-                   aria-hidden="true"></i>PRICE: 2500
-            </li>
+                   aria-hidden="true"></i>DATE: @Model.Item2.Date
+                </li>
         </ul>
 
-        @await Html.PartialAsync("_MoreInformation") 
+        @await Html.PartialAsync("_MoreInformation")
 
         <div class="row">
             <div class="col vip-archive-single-url">

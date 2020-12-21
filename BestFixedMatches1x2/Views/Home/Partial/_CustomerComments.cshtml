@@ -1,91 +1,20 @@
-﻿<div class="row">
+﻿@model List<Core.Models.CommentModel>
+
+<div class="row">
     <div class="col">
         <h4 class="side-header-text">WHAT OUR CLIENTS SAY for the best fixed matches</h4>
         <ul class="list-group side-comments">
-            <li class="list-group-item">
-                <p>
-                    I really enjoy this service because it offers unique tips at very low risk. Odds
-                    are
-                    quite good considering that these are very safe tips and i'm happy with that.
-                    Wish
-                    you all the best, byeee.
-                </p>
-                <p>
-                    Filip Loshkovski - Macedonia
-                </p>
-            </li>
-            <li class="list-group-item">
-                <p>
-                    I really enjoy this service because it offers unique tips at very low risk. Odds
-                    are
-                    quite good considering that these are very safe tips and i'm happy with that.
-                    Wish
-                    you all the best, byeee.
-                </p>
-                <p>
-                    Filip Loshkovski - Macedonia
-                </p>
-            </li>
-            <li class="list-group-item">
-                <p>
-                    I really enjoy this service because it offers unique tips at very low risk. Odds
-                    are
-                    quite good considering that these are very safe tips and i'm happy with that.
-                    Wish
-                    you all the best, byeee.
-                </p>
-                <p>
-                    Filip Loshkovski - Macedonia
-                </p>
-            </li>
-            <li class="list-group-item">
-                <p>
-                    I really enjoy this service because it offers unique tips at very low risk. Odds
-                    are
-                    quite good considering that these are very safe tips and i'm happy with that.
-                    Wish
-                    you all the best, byeee.
-                </p>
-                <p>
-                    Filip Loshkovski - Macedonia
-                </p>
-            </li>
-            <li class="list-group-item">
-                <p>
-                    I really enjoy this service because it offers unique tips at very low risk. Odds
-                    are
-                    quite good considering that these are very safe tips and i'm happy with that.
-                    Wish
-                    you all the best, byeee.
-                </p>
-                <p>
-                    Filip Loshkovski - Macedonia
-                </p>
-            </li>
-            <li class="list-group-item">
-                <p>
-                    I really enjoy this service because it offers unique tips at very low risk. Odds
-                    are
-                    quite good considering that these are very safe tips and i'm happy with that.
-                    Wish
-                    you all the best, byeee.
-                </p>
-                <p>
-                    Filip Loshkovski - Macedonia
-                </p>
-            </li>
-            <li class="list-group-item">
-                <p>
-                    I really enjoy this service because it offers unique tips at very low risk. Odds
-                    are
-                    quite good considering that these are very safe tips and i'm happy with that.
-                    Wish
-                    you all the best, byeee.
-                </p>
-                <p>
-                    Filip Loshkovski - Macedonia
-                </p>
-            </li>
+            @foreach (var item in Model)
+            {
+                <li class="list-group-item">
+                    <p>
+                        @item.Comment
+                    </p>
+                    <p>
+                        @item.Name
+                    </p>
+                </li>
+            }
         </ul>
     </div>
 </div>

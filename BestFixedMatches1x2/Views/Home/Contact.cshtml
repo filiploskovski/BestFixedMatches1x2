@@ -1,29 +1,14 @@
-﻿<div class="row">
+﻿@model Core.Models.HtmlModel
+
+<div class="row">
     <div class="col">
         <section>
             <div class="alert alert-custom" role="alert">
                 <h2><i class="fa fa-hand-o-right" aria-hidden="true"></i><i class="fas fa-comment-exclamation"></i>Contact</h2>
             </div>
             <hr>
-            <div class="monthly-subscription">
-                <p class="custom-main-text">
-                    Next Ticket For 30.05.2020 (Saturday)<br>
-                    One ticket = (4 fixed matches >> Odd: 250.00 - 300.00 )<br>
-                    Safe 1000%, Profit is Guaranteed !!<br>
-                    Information about the fixed matches:<br>
-                    >> Suspended players, injured players, the financial situation at the clubs, forms,
-                    mutual
-                    agreement
-                    between the clubs, strong information…
-                </p>
-
-                <div class="main-more-information">
-                    <hr>
-                    <h5>For more information contact:</h5>
-                    <p><a href="#">bestfixedmatches1x2@gmail.com</a></p>
-                    <hr>
-                </div>
-
+            <div class="static-pages">
+                @Html.Raw(Model.Html)
             </div>
         </section>
     </div>

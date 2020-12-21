@@ -1,149 +1,55 @@
-﻿<div class="row">
+﻿@model Tuple<Core.Models.HtmlModel, List<Core.Models.VipTicketModel>>
+
+<div class="row">
     <div class="col">
         <section>
-
             <div class="alert alert-custom" role="alert">
                 <h2><i class="fa fa-hand-o-right" aria-hidden="true"></i>VIP TICKET OFFER</h2>
             </div>
-
             <hr>
 
             <div class="vip-ticket">
-                <p class="custom-main-text">
-                    Next Ticket For 30.05.2020 (Saturday)<br>
-                    One ticket = (4 fixed matches >> Odd: 250.00 - 300.00 )<br>
-                    Safe 1000%, Profit is Guaranteed !!<br>
-                    Information about the fixed matches:<br>
-                    >> Suspended players, injured players, the financial situation at the clubs, forms,
-                    mutual
-                    agreement
-                    between the clubs, strong information…
-                </p>
-
-                <ul class="list-group custom-main-list">
-                    <li class="list-group-item">
-                        <i class="fa fa-arrow-right"
-                           aria-hidden="true"></i>Price for one ticket is 50 eur
-                    </li>
-                    <li class="list-group-item">
-                        <i class="fa fa-arrow-right"
-                           aria-hidden="true"></i>Packet three tickets 110 eur
-                    </li>
-                </ul>
-
-                @await Html.PartialAsync("_MoreInformation")
+                @Html.Raw(Model.Item1.Html)
             </div>
-
 
             <div class="row row-vip-ticket-main-card">
                 <div class="col"></div>
                 <div class="col-md-8">
                     <h4 class="vip-tickets-images-intro-text">LATEST VIP TICKETS !!!</h4>
                     <div class="card vip-ticket-card">
-                        <img class="card-img-top" src="https://via.placeholder.com/500"
-                             alt="Card image cap">
-                        <div class="card-body vip-ticket-card-body">
-                            <h5 class="card-title">WINNING VIP TICKET</h5>
-                            <p class="card-text">
-                                Latest vip ticket with four fixed matches played on
-                                20.20.2020
-                                With max winings !!!
-                            </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item vip-ticket-card-list-item">DATE: 20.12.2020</li>
-                            <li class="list-group-item vip-ticket-card-list-item">ODD: 250</li>
-                            <li class="list-group-item vip-ticket-card-list-item">PRICE: 2500</li>
-                        </ul>
+                        <a asp-action="VipTicketArchiveSingle" asp-controller="Home" asp-route-id="@Model.Item2.First().Id">
+                            <img class="card-img-top" src="~/images/tickets/@Model.Item2.First().ImgUrl"
+                                 alt="@Model.Item2.First().AltTag">
+                            <div class="card-body vip-ticket-card-body">
+                                <h5 class="card-title">Winning ticket on: @Model.Item2.First().Date</h5>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col"></div>
             </div>
 
             <div class="row row-vip-ticket-second-card">
-                <div class="col-md-4">
-                    <div class="card vip-ticket-card">
-                        <img class="card-img-top" src="https://via.placeholder.com/800"
-                             alt="Card image cap">
-                        <div class="card-body vip-ticket-card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and
-                                make up
-                                the bulk of the card's content.
-                            </p>
+                @foreach (var item in Model.Item2.Skip(1))
+                {
+                    <div class="col-md-4">
+                        <div class="card vip-ticket-card">
+                            <a asp-action="VipTicketArchiveSingle" asp-controller="Home" asp-route-id="@item.Id">
+                                <img class="card-img-top" src="~/images/tickets/@item.ImgUrl"
+                                     alt="@item.AltTag">
+                                <div class="card-body vip-ticket-card-body">
+                                    <h5 class="card-title">Winning ticket on: @item.Date</h5>
+                                </div>
+                            </a>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item vip-ticket-card-list-item">
-                                <span>Date:</span>
-                                20.12.2020
-                            </li>
-                            <li class="list-group-item vip-ticket-card-list-item">
-                                <span>Odd:</span> 250
-                            </li>
-                            <li class="list-group-item vip-ticket-card-list-item">
-                                <span>Price:</span>
-                                2500
-                            </li>
-                        </ul>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card vip-ticket-card">
-                        <img class="card-img-top" src="https://via.placeholder.com/800"
-                             alt="Card image cap">
-                        <div class="card-body vip-ticket-card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and
-                                make up
-                                the bulk of the card's content.
-                            </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item vip-ticket-card-list-item">
-                                <span>Date:</span>
-                                20.12.2020
-                            </li>
-                            <li class="list-group-item vip-ticket-card-list-item">
-                                <span>Odd:</span> 250
-                            </li>
-                            <li class="list-group-item vip-ticket-card-list-item">
-                                <span>Price:</span>
-                                2500
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card vip-ticket-card">
-                        <img class="card-img-top" src="https://via.placeholder.com/800"
-                             alt="Card image cap">
-                        <div class="card-body vip-ticket-card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and
-                                make up
-                                the bulk of the card's content.
-                            </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item vip-ticket-card-list-item">
-                                <span>Date:</span>
-                                20.12.2020
-                            </li>
-                            <li class="list-group-item vip-ticket-card-list-item">
-                                <span>Odd:</span> 250
-                            </li>
-                            <li class="list-group-item vip-ticket-card-list-item">
-                                <span>Price:</span>
-                                2500
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                }
+
+
                 <div class="col-md-12 custom-default-url">
-                    <p><a href="#">View more winning tip ticket (fixed matches)</a></p>
+                    <p>
+                        <a asp-action="VipTicketArchive" asp-controller="Home">View full archive</a>
+                    </p>
                 </div>
             </div>
         </section>

@@ -1,93 +1,48 @@
-﻿<div class="row">
+﻿@model Tuple<Core.Models.HtmlModel,List<Core.Models.TableModel>>
+
+<div class="row">
     <div class="col">
         <section>
             <div class="alert alert-custom" role="alert">
-                <h2><i class="fa fa-hand-o-right" aria-hidden="true"></i>Monthly Subscration</h2>
+                <h2><i class="fa fa-hand-o-right" aria-hidden="true"></i>Monthly Subscription</h2>
             </div>
             <hr>
             <div class="monthly-subscription">
-                <p class="custom-main-text">
-                    Next Ticket For 30.05.2020 (Saturday)<br>
-                    One ticket = (4 fixed matches >> Odd: 250.00 - 300.00 )<br>
-                    Safe 1000%, Profit is Guaranteed !!<br>
-                    Information about the fixed matches:<br>
-                    >> Suspended players, injured players, the financial situation at the clubs, forms,
-                    mutual
-                    agreement
-                    between the clubs, strong information…
-                </p>
-
-                <ul class="list-group custom-main-list">
-                    <li class="list-group-item">
-                        <i class="fa fa-arrow-right"
-                           aria-hidden="true"></i>Price for one week is 50 eur
-                    </li>
-                    <li class="list-group-item">
-                        <i class="fa fa-arrow-right"
-                           aria-hidden="true"></i>Packet two weeks 110 eur
-                    </li>
-                    <li class="list-group-item">
-                        <i class="fa fa-arrow-right"
-                           aria-hidden="true"></i>Packet three weeks 110 eur
-                    </li>
-                    <li class="list-group-item">
-                        <i class="fa fa-arrow-right"
-                           aria-hidden="true"></i>Packet three tickets 110 eur
-                    </li>
-                </ul>
-
-                @await Html.PartialAsync("_MoreInformation") 
-
+                @Html.Raw(Model.Item1.Html)
             </div>
 
             <div class="table-responsive">
                 <h4 class="vip-tickets-images-intro-text">
-                    Monthly Subscration Archive for December 2020
+                    Monthly Subscription Archive
                 </h4>
                 <table class="table table-cumstom">
                     <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Handle</th>
-                        </tr>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Match</th>
+                        <th scope="col">Tip</th>
+                        <th scope="col">Odd</th>
+                        <th scope="col">Result</th>
+                        <th scope="col">WinLose</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                            <td>mdo</td>
-                        </tr>
+                    @{
+                        foreach (var item in Model.Item2)
+                        {
+                            <tr>
+                                <td>@item.Date</td>
+                                <td>@item.Description</td>
+                                <td>@item.Match</td>
+                                <td>@item.Tip</td>
+                                <td>@item.Odd</td>
+                                <td>@item.Result</td>
+                                <td>@item.WinLose</td>
+                            </tr>
+                        }
+                    }
+
                     </tbody>
                 </table>
             </div>
