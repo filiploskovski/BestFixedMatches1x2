@@ -1,4 +1,5 @@
-﻿<footer>
+﻿@model Core.Models.FooterModel
+<footer>
     <div class="container-fluid">
         <div class="row footer">
             <div class="container">
@@ -6,8 +7,8 @@
                     <div class="col">
                         <ul class="list-inline header-list">
                             <li class="list-inline-item header-list-item-text"><a asp-action="Index" asp-controller="Home">Home</a></li>
-                            <li class="list-inline-item header-list-item-text"><a asp-action="Results" asp-controller="Home">Results</a></li>
-                            <li class="list-inline-item header-list-item-text"><a asp-action="BettingOdds" asp-controller="Home">Betting Odds</a></li>
+                            @*<li class="list-inline-item header-list-item-text"><a asp-action="Results" asp-controller="Home">Results</a></li>*@
+                            @*<li class="list-inline-item header-list-item-text"><a asp-action="BettingOdds" asp-controller="Home">Betting Odds</a></li>*@
                             <li class="list-inline-item header-list-item-text"><a asp-action="VipTicketArchive" asp-controller="Home">Vip ticket archive</a></li>
                             <li class="list-inline-item header-list-item-text"><a asp-action="MonthlySubscriptionArchive" asp-controller="Home">Monthly subscription archive</a></li>
                             <li class="list-inline-item header-list-item-text"><a asp-action="FreeTipsArchive" asp-controller="Home">Free tips archive</a></li>
@@ -21,16 +22,12 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p>
-                            Free football matches are not fixed .. these are suggestions we make in our opinion.
-                            The matches we sell are fixed and reliable with information from betting experts for
-                            football matches
-                        </p>
+                       @Html.Raw(Model.Html.Html)
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p>Copyright © Best fixed matches 1x2</p>
+                        <p>Copyright © <a asp-action="Index" asp-controller="Home">Best fixed matches 1x2</a></p>
                     </div>
                 </div>
             </div>

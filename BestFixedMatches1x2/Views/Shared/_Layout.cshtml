@@ -1,9 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using Core.Models
+@{
+    var baseModel = (BaseModel)ViewBag.BaseModel;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BestFixedMatches1x2</title>
+    <title>@baseModel.Seo.Title</title>
     @await Html.PartialAsync("_StaticImports_css")
 </head>
 <body>
@@ -16,7 +21,7 @@
         <hr />
     </div>
 
-    @await Html.PartialAsync("_Footer")
+    @await Html.PartialAsync("_Footer",baseModel.Footer)
     @await Html.PartialAsync("_StaticImports_js")
 </body>
 </html>

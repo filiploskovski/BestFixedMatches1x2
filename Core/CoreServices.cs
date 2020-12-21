@@ -16,6 +16,8 @@ namespace Core
             serviceCollection.AddScoped<IMonthlySubscriptionService, MonthlySubscriptionService>();
             serviceCollection.AddScoped<IFreeTipsService, FreeTipsService>();
             serviceCollection.AddScoped<ICommentService, CommentService>();
+            serviceCollection.AddScoped<IControllerActionService, ControllerActionService>();
+            serviceCollection.AddScoped<ISeoService, SeoService>();
         }
     }
 }

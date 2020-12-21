@@ -15,5 +15,12 @@
         public static string CO { get; } = "co";            // contact
         public static string AB { get; } = "ab";            // about
         public static string LA { get; } = "la";            // landing
+        public static string FOO { get; } = "foo";          // footer
+        
+        
+        public static string CSS_TABLE_ROW_WIN { get; } = "table-win";          // Css table win
+        public static string CSS_TABLE_ROW_LOSE { get; } = "table-lose";          // Css table lose
+
+
     }
 }

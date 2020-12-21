@@ -31,15 +31,15 @@
                     @{
                         foreach (var item in Model.Item2)
                         {
-                            <tr>
-                                <td>@item.Date</td>
-                                <td>@item.Description</td>
-                                <td>@item.Match</td>
-                                <td>@item.Tip</td>
-                                <td>@item.Odd</td>
-                                <td>@item.Result</td>
-                                <td>@item.WinLose</td>
-                            </tr>
+                                            <tr>
+                                                <td>@item.Date</td>
+                                                <td>@item.Description</td>
+                                                <td>@item.Match</td>
+                                                <td>@item.Tip</td>
+                                                <td>@item.Odd</td>
+                                                <td>@item.Result</td>
+                                                <td class="@item.CssClassWinLose">@item.WinLose</td>
+                                            </tr>
                         }
                     }
 

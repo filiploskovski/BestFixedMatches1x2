@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Core.Models
 {
-    public class IndexModel
+    public class IndexModel : BaseModel
     {
         public Tuple<HtmlModel, List<TableModel>> Monthly { get; set; }
         public Tuple<HtmlModel, List<TableModel>> Free { get; set; }

@@ -1,4 +1,4 @@
-﻿@model Tuple<Core.Models.HtmlModel,List<Core.Models.TableModel>>
+﻿@model Tuple<Core.Models.HtmlModel, List<Core.Models.TableModel>>
 
 <div class="row">
     <div class="col">
@@ -30,13 +30,13 @@
                     @{
                         foreach (var item in Model.Item2)
                         {
-                            <tr style="">
+                            <tr>
                                 <td>@item.Date</td>
                                 <td>@item.Match</td>
                                 <td>@item.Tip</td>
                                 <td>@item.Odd</td>
                                 <td>@item.Result</td>
-                                <td>@item.WinLose</td>
+                                <td class="@item.CssClassWinLose">@item.WinLose</td>
                             </tr>
                         }
                     }

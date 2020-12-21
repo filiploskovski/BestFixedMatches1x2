@@ -9,7 +9,7 @@ namespace Core.Extensions
     {
         public static IQueryable<HtmlModel> Map(this IQueryable<RPageDetails> q, string code)
         {
-            return q.Where(item => string.Equals(item.Code, code, StringComparison.CurrentCultureIgnoreCase)).Select(
+            return q.Where(item => item.Code.ToLower() == code.ToLower()).Select(
                 a => new HtmlModel
                 {
                     Code = a.Code,

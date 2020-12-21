@@ -1,7 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Core.Code;
 using Core.Interfaces;
+using Core.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace BestFixedMatches1x2.Controllers
 {
@@ -12,21 +14,26 @@ namespace BestFixedMatches1x2.Controllers
         private readonly IIndexService _indexService;
         private readonly IMonthlySubscriptionService _monthlySubscriptionService;
         private readonly IVipTicketService _vipTicketService;
+        private readonly IControllerActionService _controllerActionService;
 
         public HomeController(IIndexService indexService, IVipTicketService vipTicketService,
             IMonthlySubscriptionService monthlySubscriptionService, IFreeTipsService freeTipsService,
-            IHtmlService htmlService)
+            IHtmlService htmlService, IControllerActionService controllerActionService)
         {
             _indexService = indexService;
             _vipTicketService = vipTicketService;
             _monthlySubscriptionService = monthlySubscriptionService;
             _freeTipsService = freeTipsService;
             _htmlService = htmlService;
+            _controllerActionService = controllerActionService;
         }
 
-        public async Task<IActionResult> Seo()
+        public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            return PartialView("_SEO");
+            if (context.Controller is HomeController controller)
+                controller.ViewBag.BaseModel = await _controllerActionService.LoadBaseModel(context);
+
+            await base.OnActionExecutionAsync(context, next);
         }
 
         public async Task<IActionResult> Index()

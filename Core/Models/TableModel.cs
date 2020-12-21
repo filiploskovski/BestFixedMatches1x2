@@ -11,5 +11,6 @@ namespace Core.Models
         public string Odd { get; set; }
         public string Result { get; set; }
         public string WinLose { get; set; }
+        public string CssClassWinLose { get; set; }
     }
 }

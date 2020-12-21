@@ -2,6 +2,7 @@
 using Core.Entities;
 using Core.Models;
 using System.Linq;
+using Core.Code;
 
 namespace Core.Extensions
 {
@@ -17,7 +18,8 @@ namespace Core.Extensions
                Odd = item.Odd,
                Result = item.Result,
                Tip = item.Tip,
-               WinLose = item.WinLose
+               WinLose = item.WinLose,
+               CssClassWinLose = item.WinLose.ToLower() == "win" ? Const.CSS_TABLE_ROW_WIN : Const.CSS_TABLE_ROW_LOSE
             });
         }
 
@@ -31,7 +33,8 @@ namespace Core.Extensions
                 Odd = item.Odd,
                 Result = item.Result,
                 Tip = item.Tip,
-                WinLose = item.WinLose
+                WinLose = item.WinLose,
+                CssClassWinLose = item.WinLose.ToLower() == "win" ? Const.CSS_TABLE_ROW_WIN : Const.CSS_TABLE_ROW_LOSE
             });
         }
     }
