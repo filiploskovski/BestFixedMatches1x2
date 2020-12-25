@@ -17,6 +17,17 @@ namespace Core.Extensions
                 });
         }
 
+        public static IQueryable<HtmlLoadModel> Map(this IQueryable<RPageDetails> q, int id)
+        {
+            return q.Where(item => item.RPageDetailsId == id).Select(
+                a => new HtmlLoadModel()
+                {
+                    Code = a.Code,
+                    Html = a.Description,
+                    Id = a.RPageDetailsId
+                });
+        }
+
         public static IQueryable<HtmlModel> Map(this IQueryable<RPageDetails> q)
         {
             return q.Select(

@@ -10,6 +10,7 @@ namespace Core.Extensions
         {
             return q.Select(item => new CommentModel()
             {
+                Id = item.Id,
                 Comment = item.Comment,
                 Name = item.Name
             });

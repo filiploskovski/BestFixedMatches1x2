@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@baseModel.Seo.Title</title>
     @await Html.PartialAsync("_StaticImports_css")
+    @await Html.PartialAsync("_StaticImports_js")
 </head>
 <body>
 
@@ -22,6 +23,5 @@
     </div>
 
     @await Html.PartialAsync("_Footer",baseModel.Footer)
-    @await Html.PartialAsync("_StaticImports_js")
 </body>
 </html>

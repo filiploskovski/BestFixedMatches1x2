@@ -29,6 +29,11 @@ namespace Core.Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Data Source= 107.151.3.34\\MSSQLSERVER2012;Initial Catalog=bestfixedmatches1x2;user id=freefixe_losko;password=jDb*1T4BPiTyt!$;");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -117,6 +122,8 @@ namespace Core.Entities
                 entity.Property(e => e.Description)
                     .IsRequired()
                     .HasColumnType("text");
+
+                entity.Property(e => e.Name).HasMaxLength(50);
             });
 
             modelBuilder.Entity<RSeo>(entity =>
