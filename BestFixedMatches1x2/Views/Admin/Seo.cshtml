@@ -1,0 +1,54 @@
+﻿@model Core.Models.SeoLoadModel
+
+
+@foreach (var item in Model.SeoByPage)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-controller="Admin" asp-action="Seo_Save">
+                <div class="form-group">
+                    <input id="Id" name="Id" type="hidden" class="form-control" value="@item.Id" />
+                </div>
+                <div class="form-group">
+                    <label for="Name">Page: </label>
+                    <input id="Page" name="Page" type="text" class="form-control" value="@item.Page" />
+                </div>
+                <div class="form-group">
+                    <label for="Title">Title: </label>
+                    <input id="Title" name="Title" type="text" class="form-control" value="@item.Title" />
+                </div>
+                <div class="form-group">
+                    <label for="Description">Description:</label>
+                    <textarea id="Description" name="Description" type="text" class="form-control">@item.Description</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="Keywords">Keywords:</label>
+                    <textarea id="Keywords" name="Keywords" type="text" class="form-control">@item.Keywords</textarea>
+                </div>
+                <input type="submit" class="btn btn-primary btn-sm float-right" value="Edit" />
+            </form>
+            <a asp-action="Seo_Delete" asp-controller="Admin" asp-route-id="@item.Id"><button type="button" class="btn btn-danger btn-sm">Delete!</button></a>
+        </div>
+    </div>
+    <hr />
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-controller="Admin" asp-action="Seo_Save">
+            <div class="form-group">
+                <input id="Id" name="Id" type="hidden" class="form-control" value="0" />
+            </div>
+            <div class="form-group">
+                <label for="Name">Name: </label>
+                <input id="Name" name="Name" type="text" class="form-control" value="" />
+            </div>
+            <div class="form-group">
+                <label for="Comment">Comment:</label>
+                <textarea id="Comment" name="Comment" type="text" class="form-control"></textarea>
+            </div>
+            <input type="submit" class="btn btn-primary btn-sm" value="Add" />
+        </form>
+    </div>
+</div>
+<hr />

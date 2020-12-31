@@ -17,6 +17,7 @@ namespace Core.Entities
 
         public virtual DbSet<RComment> RComment { get; set; }
         public virtual DbSet<RCounter> RCounter { get; set; }
+        public virtual DbSet<RCountry> RCountry { get; set; }
         public virtual DbSet<RFreeTip> RFreeTip { get; set; }
         public virtual DbSet<RLeague> RLeague { get; set; }
         public virtual DbSet<RMatch> RMatch { get; set; }
@@ -58,6 +59,19 @@ namespace Core.Entities
                 entity.Property(e => e.Date).HasColumnType("date");
             });
 
+            modelBuilder.Entity<RCountry>(entity =>
+            {
+                entity.ToTable("rCountry");
+
+                entity.Property(e => e.RCountryId).HasColumnName("rCountryId");
+
+                entity.Property(e => e.MozzartCountryName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.RMozzartCountryId).HasColumnName("rMozzartCountryId");
+            });
+
             modelBuilder.Entity<RFreeTip>(entity =>
             {
                 entity.ToTable("rFreeTip", "freefixe_bestfixedmatches1x2");
@@ -82,6 +96,10 @@ namespace Core.Entities
                 entity.ToTable("rLeague");
 
                 entity.Property(e => e.RLeagueId).HasColumnName("rLeagueId");
+
+                entity.Property(e => e.Code).HasMaxLength(50);
+
+                entity.Property(e => e.Country).HasMaxLength(50);
 
                 entity.Property(e => e.FCheck).HasColumnName("f_check");
 

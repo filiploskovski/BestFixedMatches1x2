@@ -1,8 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Core.Interfaces;
 using Core.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -10,15 +8,20 @@ namespace BestFixedMatches1x2.Controllers
 {
     public class AdminController : Controller
     {
+        private readonly ICommentService _commentService;
         private readonly IControllerActionService _controllerActionService;
         private readonly IHtmlService _htmlService;
-        private readonly ICommentService _commentService;
+        private readonly ISeoService _seoService;
+        private readonly IMonthlySubscriptionService _monthlySubscriptionService;
 
-        public AdminController(IControllerActionService controllerActionService, IHtmlService htmlService, ICommentService commentService)
+        public AdminController(IControllerActionService controllerActionService, IHtmlService htmlService,
+            ICommentService commentService, ISeoService seoService, IMonthlySubscriptionService monthlySubscriptionService)
         {
             _controllerActionService = controllerActionService;
             _htmlService = htmlService;
             _commentService = commentService;
+            _seoService = seoService;
+            _monthlySubscriptionService = monthlySubscriptionService;
         }
 
         public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
@@ -76,6 +79,49 @@ namespace BestFixedMatches1x2.Controllers
         {
             await _commentService.Delete(id);
             return RedirectToAction("CustomerComments");
+        }
+
+        #endregion
+
+        #region SEO
+
+        public async Task<ViewResult> Seo()
+        {
+            return View(await _seoService.Load());
+        }
+
+        public async Task<IActionResult> Seo_Save(SeoLoadModel model)
+        {
+            await _seoService.Save_Update(model);
+            return RedirectToAction("Seo");
+        }
+
+        public async Task<IActionResult> Seo_Delete(int id)
+        {
+            await _seoService.Delete(id);
+            return RedirectToAction("Seo");
+        }
+
+        #endregion
+
+        #region Monthly
+
+        public async Task<ViewResult> MonthlySubscription(int? id)
+        {
+            if (id == null) return View(await _monthlySubscriptionService.Load(new MonthlySubscriptionModel()));
+            return View(await _monthlySubscriptionService.Load(new MonthlySubscriptionModel() { Id = (int)id }));
+        }
+
+        public async Task<IActionResult> MonthlySubscription_Save(MonthlySubscriptionModel model)
+        {
+            await _monthlySubscriptionService.Save_Update(model);
+            return RedirectToAction("MonthlySubscription", new { id = model.Id });
+        }
+
+        public async Task<IActionResult> MonthlySubscription_Delete(int id)
+        {
+            await _monthlySubscriptionService.Delete(id);
+            return RedirectToAction("MonthlySubscription");
         }
 
         #endregion

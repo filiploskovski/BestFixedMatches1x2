@@ -11,6 +11,10 @@ namespace Core.Extensions
             return q.Select(item => new SeoModel()
                 {
                     Title = item.Title,
+                    Page = item.Page,
+                    Keywords = item.Keywords,
+                    Description = item.Description,
+                    Id = item.RSeoId
                 });
         }
     }
