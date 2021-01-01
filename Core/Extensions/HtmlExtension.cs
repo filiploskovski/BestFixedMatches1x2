@@ -12,6 +12,7 @@ namespace Core.Extensions
             return q.Where(item => item.Code.ToLower() == code.ToLower()).Select(
                 a => new HtmlModel
                 {
+                    Id = a.RPageDetailsId,
                     Code = a.Code,
                     Html = a.Description
                 });

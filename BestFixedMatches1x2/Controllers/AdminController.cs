@@ -13,15 +13,17 @@ namespace BestFixedMatches1x2.Controllers
         private readonly IHtmlService _htmlService;
         private readonly ISeoService _seoService;
         private readonly IMonthlySubscriptionService _monthlySubscriptionService;
+        private readonly IFreeTipsService _freeTipsService;
 
         public AdminController(IControllerActionService controllerActionService, IHtmlService htmlService,
-            ICommentService commentService, ISeoService seoService, IMonthlySubscriptionService monthlySubscriptionService)
+            ICommentService commentService, ISeoService seoService, IMonthlySubscriptionService monthlySubscriptionService, IFreeTipsService freeTipsService)
         {
             _controllerActionService = controllerActionService;
             _htmlService = htmlService;
             _commentService = commentService;
             _seoService = seoService;
             _monthlySubscriptionService = monthlySubscriptionService;
+            _freeTipsService = freeTipsService;
         }
 
         public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
@@ -122,6 +124,34 @@ namespace BestFixedMatches1x2.Controllers
         {
             await _monthlySubscriptionService.Delete(id);
             return RedirectToAction("MonthlySubscription");
+        }
+
+        #endregion
+
+        #region FreeTips
+
+        public async Task<ViewResult> FreeTips(int? id)
+        {
+            if (id == null) return View(await _freeTipsService.Load(new FreeTipsModel()));
+            return View(await _freeTipsService.Load(new FreeTipsModel() { Id = (int)id }));
+        }
+
+        public async Task<IActionResult> FreeTips_Save(FreeTipsModel model)
+        {
+            await _freeTipsService.Save_Update(model);
+            return RedirectToAction("FreeTips", new { id = model.Id });
+        }
+
+        public async Task<IActionResult> FreeTips_HtmlUpdate(FreeTipsModel model)
+        {
+            await _freeTipsService.HtmlUpdate(model);
+            return RedirectToAction("FreeTips");
+        }
+
+        public async Task<IActionResult> FreeTips_Delete(int id)
+        {
+            await _freeTipsService.Delete(id);
+            return RedirectToAction("FreeTips");
         }
 
         #endregion
