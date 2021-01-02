@@ -1,11 +1,18 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using Core.Interfaces;
 using Core.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace BestFixedMatches1x2.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly ICommentService _commentService;
@@ -36,9 +43,30 @@ namespace BestFixedMatches1x2.Controllers
             await base.OnActionExecutionAsync(context, next);
         }
 
-        public IActionResult Index()
+        [AllowAnonymous]
+        public ViewResult Index()
         {
-            return RedirectToAction("Dashboard");
+            return View();
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(LoginModel model)
+        {
+            if (model.Username == "bestfixedmatches1x2" && model.Password == "losko1969!")
+            {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, model.Username)
+                };
+                var claimsIdentity = new ClaimsIdentity(claims, "Login");
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdentity));
+                
+                return RedirectToAction("Dashboard");
+            }
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult Dashboard()
