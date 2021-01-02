@@ -1,5 +1,83 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Core.Models.VipTicketLoadModel
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-generator" role="tab" aria-controls="nav-home" aria-selected="true">Generator</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-html" role="tab" aria-controls="nav-html" aria-selected="false">Html Editor</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-edit" role="tab" aria-controls="nav-profile" aria-selected="false">Edit</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-grid" role="tab" aria-controls="nav-contact" aria-selected="false">Grid</a>
+    </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-generator" role="tabpanel" aria-labelledby="nav-home-tab">
+        <p>Generator</p>
+    </div>
+    <div class="tab-pane fade" id="nav-html" role="tabpanel" aria-labelledby="nav-home-tab">
+        <form asp-controller="Admin" asp-action="VipTicket_HtmlUpdate">
+            <textarea id="Html" name="Html">@Model.Html</textarea>
+            <input type="submit" value="Update Html" />
+        </form>
+    </div>
+    <div class="tab-pane fade" id="nav-edit" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="file" name="File" asp-for="File" />
+                    <input id="Id" name="Id" type="hidden" class="form-control" value="@Model.Id" />
+
+                    <div class="form-group">
+                        <label for="Date">Date: </label>
+                        <input id="Date" name="Date" type="date" class="form-control" value="@Model.Date" />
+                    </div>
+                    <div class="form-group">
+                        <label for="AltTag">AltTag: </label>
+                        <input id="AltTag" name="AltTag" type="text" class="form-control" value="@Model.AltTag" />
+                    </div>
+                    <button type="submit" class="btn btn-primary" asp-controller="Admin" asp-action="VipTicket_Save">Upload to File System</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-grid" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <table class="table table-cumstom">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Date</th>
+                <th scope="col">FileName</th>
+                <th scope="col">FileAlt</th>
+                <th scope="col">Update/Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var item in Model.Grid)
+                    {
+                        <tr>
+                            <td><img src="~/images/tickets/@item.ImgUrl" class="img-thumbnail" alt="@item.AltTag"/></td>
+                            <td>@item.Date</td>
+                            <td>@item.ImgUrl</td>
+                            <td>@item.AltTag</td>
+                            <td>
+                                <a asp-action="VipTicket" asp-controller="Admin" asp-route-id="@item.Id"><button class="btn btn-warning btn-sm">Update</button></a>
+                                <a asp-action="VipTicket_Delete" asp-controller="Admin" asp-route-id="@item.Id"><button class="btn btn-danger btn-sm">Delete</button></a>
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Html').summernote();
+    });
+</script>

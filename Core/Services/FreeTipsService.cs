@@ -41,7 +41,7 @@ namespace Core.Services
                 return new FreeTipsModel()
                 {
                     Html = (await _htmlService.HtmlByCode(Const.FT)).Html,
-                    Grid = await _freeTipsRepository.GetAllBy(item => item.Map())
+                    Grid = await _freeTipsRepository.GetAllBy(item => item.OrderByDescending(q => q.Date).Map())
                 };
             }
             else
@@ -58,7 +58,7 @@ namespace Core.Services
                     Tip = entity.Tip,
                     WinLose = entity.WinLose,
                     Html = (await _htmlService.HtmlByCode(Const.FT)).Html,
-                    Grid = await _freeTipsRepository.GetAllBy(item => item.Map())
+                    Grid = await _freeTipsRepository.GetAllBy(item => item.OrderByDescending(q => q.Date).Map())
                 };
             }
         }

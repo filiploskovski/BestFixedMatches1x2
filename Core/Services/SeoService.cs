@@ -29,10 +29,14 @@ namespace Core.Services
                 q.Where(item => item.Page.ToLower() == path.ToLower()).Map());
 
             if (model == null)
+            {
                 return new SeoModel
                 {
-                    Title = "Best fixed matches"
+                    Title = "Best fixed matches",
+                    Description = "",
+                    Keywords = "",
                 };
+            }
 
             return model;
         }

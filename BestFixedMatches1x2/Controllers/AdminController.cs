@@ -14,9 +14,10 @@ namespace BestFixedMatches1x2.Controllers
         private readonly ISeoService _seoService;
         private readonly IMonthlySubscriptionService _monthlySubscriptionService;
         private readonly IFreeTipsService _freeTipsService;
+        private readonly IVipTicketService _vipTicketService;
 
         public AdminController(IControllerActionService controllerActionService, IHtmlService htmlService,
-            ICommentService commentService, ISeoService seoService, IMonthlySubscriptionService monthlySubscriptionService, IFreeTipsService freeTipsService)
+            ICommentService commentService, ISeoService seoService, IMonthlySubscriptionService monthlySubscriptionService, IFreeTipsService freeTipsService, IVipTicketService vipTicketService)
         {
             _controllerActionService = controllerActionService;
             _htmlService = htmlService;
@@ -24,6 +25,7 @@ namespace BestFixedMatches1x2.Controllers
             _seoService = seoService;
             _monthlySubscriptionService = monthlySubscriptionService;
             _freeTipsService = freeTipsService;
+            _vipTicketService = vipTicketService;
         }
 
         public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
@@ -152,6 +154,34 @@ namespace BestFixedMatches1x2.Controllers
         {
             await _freeTipsService.Delete(id);
             return RedirectToAction("FreeTips");
+        }
+
+        #endregion
+
+        #region VipTicket
+
+        public async Task<ViewResult> VipTicket(int? id)
+        {
+            if (id == null) return View(await _vipTicketService.Load(new VipTicketLoadModel()));
+            return View(await _vipTicketService.Load(new VipTicketLoadModel() { Id = (int)id }));
+        }
+
+        public async Task<IActionResult> VipTicket_Save(VipTicketLoadModel model)
+        {
+            await _vipTicketService.Save_Update(model);
+            return RedirectToAction("VipTicket", new { id = model.Id });
+        }
+
+        public async Task<IActionResult> VipTicket_HtmlUpdate(VipTicketLoadModel model)
+        {
+            await _vipTicketService.Save_Html(model);
+            return RedirectToAction("VipTicket");
+        }
+
+        public async Task<IActionResult> VipTicket_Delete(int id)
+        {
+            await _vipTicketService.Delete(id);
+            return RedirectToAction("VipTicket");
         }
 
         #endregion
