@@ -9,6 +9,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@baseModel.Seo.Title</title>
+    <meta name="description" content="@baseModel.Seo.Description">
+    <meta name="keywords" content="@baseModel.Seo.Keywords">
+    <meta name="author" content="Best Fixed Matches 1x2">
+    <link rel="icon" type="image/png" href="~/images/static-images/favicon.png" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93172953-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-93172953-1');
+    </script>
+
     @await Html.PartialAsync("_StaticImports_css")
     @await Html.PartialAsync("_StaticImports_js")
 </head>
