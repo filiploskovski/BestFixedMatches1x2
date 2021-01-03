@@ -1,0 +1,72 @@
+2021-01-03 03:07:05.617 +01:00 [INF] Starting up
+2021-01-03 03:07:09.863 +01:00 [INF] User profile is available. Using 'C:\Users\filip\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-01-03 03:07:12.181 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+2021-01-03 03:07:12.657 +01:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller BestFixedMatches1x2.Controllers.HomeController (BestFixedMatches1x2).
+2021-01-03 03:07:15.028 +01:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data, this mode should only be enabled during development.
+2021-01-03 03:07:15.121 +01:00 [INF] Entity Framework Core 2.1.14-servicing-32113 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: SensitiveDataLoggingEnabled 
+2021-01-03 03:07:16.758 +01:00 [INF] Executed DbCommand (194ms) [Parameters=[@__ToLower_0='/' (Size = 250)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [item].[Title], [item].[Page], [item].[Keywords], [item].[Description], [item].[rSeoID] AS [Id]
+FROM [freefixe_bestfixedmatches1x2].[rSeo] AS [item]
+WHERE LOWER([item].[Page]) = @__ToLower_0
+2021-01-03 03:07:17.012 +01:00 [INF] Executed DbCommand (176ms) [Parameters=[@__ToLower_0='foo' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [item].[rPageDetailsID] AS [Id], [item].[Code], [item].[Description] AS [Html]
+FROM [freefixe_bestfixedmatches1x2].[rPageDetails] AS [item]
+WHERE LOWER([item].[Code]) = @__ToLower_0
+2021-01-03 03:07:17.059 +01:00 [INF] Executing action method BestFixedMatches1x2.Controllers.HomeController.Index (BestFixedMatches1x2) - Validation state: "Valid"
+2021-01-03 03:07:17.246 +01:00 [INF] Executed DbCommand (175ms) [Parameters=[@__ToLower_0='ft' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [item].[rPageDetailsID] AS [Id], [item].[Code], [item].[Description] AS [Html]
+FROM [freefixe_bestfixedmatches1x2].[rPageDetails] AS [item]
+WHERE LOWER([item].[Code]) = @__ToLower_0
+2021-01-03 03:07:17.493 +01:00 [INF] Executed DbCommand (190ms) [Parameters=[@__p_0='30', @__CSS_TABLE_ROW_WIN_2='table-win' (Size = 4000), @__CSS_TABLE_ROW_LOSE_3='table-lose' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [x].[rFreeTipID] AS [Id], [x].[Date], [x].[Description], [x].[Match], [x].[Odd], [x].[Result], [x].[Tip], [x].[WinLose], CASE
+    WHEN LOWER([x].[WinLose]) = N'win'
+    THEN @__CSS_TABLE_ROW_WIN_2 ELSE @__CSS_TABLE_ROW_LOSE_3
+END AS [CssClassWinLose]
+FROM [freefixe_bestfixedmatches1x2].[rFreeTip] AS [x]
+ORDER BY [x].[Date] DESC
+2021-01-03 03:07:17.709 +01:00 [INF] Executed DbCommand (185ms) [Parameters=[@__ToLower_0='ms' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [item].[rPageDetailsID] AS [Id], [item].[Code], [item].[Description] AS [Html]
+FROM [freefixe_bestfixedmatches1x2].[rPageDetails] AS [item]
+WHERE LOWER([item].[Code]) = @__ToLower_0
+2021-01-03 03:07:17.936 +01:00 [INF] Executed DbCommand (198ms) [Parameters=[@__p_0='30', @__CSS_TABLE_ROW_WIN_2='table-win' (Size = 4000), @__CSS_TABLE_ROW_LOSE_3='table-lose' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [x].[rMatchID] AS [Id], [x].[Date], [x].[Description], [x].[Match], [x].[Odd], [x].[Result], [x].[Tip], [x].[WinLose], CASE
+    WHEN LOWER([x].[WinLose]) = N'win'
+    THEN @__CSS_TABLE_ROW_WIN_2 ELSE @__CSS_TABLE_ROW_LOSE_3
+END AS [CssClassWinLose]
+FROM [freefixe_bestfixedmatches1x2].[rMatch] AS [x]
+ORDER BY [x].[Date] DESC
+2021-01-03 03:07:18.132 +01:00 [INF] Executed DbCommand (173ms) [Parameters=[@__ToLower_0='vt' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [item].[rPageDetailsID] AS [Id], [item].[Code], [item].[Description] AS [Html]
+FROM [freefixe_bestfixedmatches1x2].[rPageDetails] AS [item]
+WHERE LOWER([item].[Code]) = @__ToLower_0
+2021-01-03 03:07:18.336 +01:00 [INF] Executed DbCommand (176ms) [Parameters=[@__p_0='4'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [x].[rVipTicketID] AS [Id], [x].[Date], [x].[Alt] AS [AltTag], [x].[img] AS [ImgUrl]
+FROM [freefixe_bestfixedmatches1x2].[rVipTicket] AS [x]
+ORDER BY [x].[Date] DESC
+2021-01-03 03:07:18.548 +01:00 [INF] Executed DbCommand (181ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [item].[Id], [item].[Comment], [item].[Name]
+FROM [freefixe_losko].[rComment] AS [item]
+2021-01-03 03:07:18.790 +01:00 [INF] Executed DbCommand (187ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [q].[rCounterID], [q].[Date], [q].[RealTotalToday], [q].[TotalToday]
+FROM [freefixe_bestfixedmatches1x2].[rCounter] AS [q]
+WHERE [q].[Date] = CONVERT(date, GETDATE())
+2021-01-03 03:07:19.303 +01:00 [INF] Executed DbCommand (182ms) [Parameters=[@p3='406', @p0='2021-01-03T00:00:00' (Nullable = true) (DbType = Date), @p1='16' (Nullable = true), @p2='108' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [freefixe_bestfixedmatches1x2].[rCounter] SET [Date] = @p0, [RealTotalToday] = @p1, [TotalToday] = @p2
+WHERE [rCounterID] = @p3;
+SELECT @@ROWCOUNT;
+2021-01-03 03:07:19.727 +01:00 [INF] Executed DbCommand (180ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [item].[RealTotalToday]
+FROM [freefixe_bestfixedmatches1x2].[rCounter] AS [item]
+2021-01-03 03:07:19.931 +01:00 [INF] Executed DbCommand (178ms) [Parameters=[@__ToLower_0='la' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [item].[rPageDetailsID] AS [Id], [item].[Code], [item].[Description] AS [Html]
+FROM [freefixe_bestfixedmatches1x2].[rPageDetails] AS [item]
+WHERE LOWER([item].[Code]) = @__ToLower_0
+2021-01-03 03:07:19.944 +01:00 [INF] Executed action method BestFixedMatches1x2.Controllers.HomeController.Index (BestFixedMatches1x2), returned result Microsoft.AspNetCore.Mvc.ViewResult in 2879.9313ms.
+2021-01-03 03:07:20.011 +01:00 [INF] Executing ViewResult, running view Index.
+2021-01-03 03:07:20.413 +01:00 [INF] Executed ViewResult - view Index executed in 422.966ms.
+2021-01-03 03:07:20.425 +01:00 [INF] Executed action BestFixedMatches1x2.Controllers.HomeController.Index (BestFixedMatches1x2) in 7762.2745ms
+2021-01-03 03:07:20.506 +01:00 [INF] Request finished in 8319.3482ms 200 text/html; charset=utf-8
+2021-01-03 03:07:20.678 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/images/static-images/best-fixed-matches.gif  
+2021-01-03 03:07:20.692 +01:00 [INF] The file /images/static-images/best-fixed-matches.gif was not modified
+2021-01-03 03:07:20.701 +01:00 [INF] Request finished in 23.1867ms 304 image/gif

@@ -15,9 +15,13 @@ namespace BestFixedMatches1x2
     {
         public static void Main(string[] args)
         {
+            var logPath = Path.Combine(Directory.GetCurrentDirectory(), "logs",
+                $"{Guid.NewGuid().ToString()}_{DateTime.Now.Date:yyyy-MM-dd}.txt");
+
             Log.Logger = new LoggerConfiguration()
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
+                .WriteTo.File(logPath, rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
             try
